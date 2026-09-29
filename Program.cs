@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace COC2
 {
@@ -10,6 +6,16 @@ namespace COC2
     {
         static void Main(string[] args)
         {
+            CustomerSupport order = new OrderSupport();
+            CustomerSupport del = new DeliverySupport();
+            CustomerSupport pay = new PaymentSupport();
+            CustomerSupport tech = new TechnicalSupport();
+            order.SetNextSupport(del).SetNextSupport(tech).SetNextSupport(pay);
+            order.Handle(new Request("Payment", "How do I pay for returned orders?"));
+            order.Handle(new Request("Delivery", "When will my order be delivered?"));
+            order.Handle(new Request("Technical", "I cant navigate your website"));
+            order.Handle(new Request("Selling", "I am selling my appliances, dont you wanna buy?"));
+            Console.ReadKey();
         }
     }
 }
