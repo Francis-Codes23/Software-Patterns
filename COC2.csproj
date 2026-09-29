@@ -43,20 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerSupport.cs" />
-    <Compile Include="DeliverySupport.cs" />
-    <Compile Include="OrderSupport.cs" />
-    <Compile Include="PaymentSupport.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Chain of Responsibility\CustomerSupport.cs" />
+    <Compile Include="Chain of Responsibility\DeliverySupport.cs" />
+    <Compile Include="Chain of Responsibility\OrderSupport.cs" />
+    <Compile Include="Chain of Responsibility\PaymentSupport.cs" />
+    <Compile Include="Chain of Responsibility\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Request.cs" />
-    <Compile Include="TechnicalSupport.cs" />
+    <Compile Include="Chain of Responsibility\Request.cs" />
+    <Compile Include="Chain of Responsibility\TechnicalSupport.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Chain of Responsibility\App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>powershell -Command "if (git status --porcelain) { git add . ; git commit -m 'Auto-update on build' ; git push }"</PostBuildEvent>
+    <PostBuildEvent>powershell -Command "if (git status --porcelain) { git add -A ; git commit -m 'Auto-update folder structure' ; git push }"
+</PostBuildEvent>
   </PropertyGroup>
 </Project>
