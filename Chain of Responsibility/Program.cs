@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommandPattern.Command_Pattern;
+using System;
 
 namespace COC2
 {
@@ -15,6 +16,13 @@ namespace COC2
             order.Handle(new Request("Delivery", "When will my order be delivered?"));
             order.Handle(new Request("Technical", "I cant navigate your website"));
             order.Handle(new Request("Selling", "I am selling my appliances, dont you wanna buy?"));
+            Console.ReadKey();
+            ///
+            Fan fan = new Fan();
+            ICommand command = new TurnFanOnCommand(fan);
+            CommandInvoker invoker = new CommandInvoker();
+            invoker.SetCommand(command);
+            invoker.Invoke();
             Console.ReadKey();
         }
     }
